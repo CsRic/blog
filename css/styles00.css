@@ -1,0 +1,25 @@
+/* 这会更改所有超链接的颜色 */
+a {
+    color: rgb(182, 167, 167);
+}
+/* 这会只更改鼠标悬停时的颜色 */
+a:hover {
+    color: rgb(255, 0, 0);
+}
+a:visited {
+    color: rgb(129, 116, 116);  /* 访问过的链接颜色 */
+}
+
+
+table {
+    width: 50%;
+    border-collapse: collapse; /* Collapse borders */
+}
+th, td {
+    border: 1px solid #000; /* Add border */
+    padding: 8px; /* Add some padding */
+    text-align: left; /* Align text to the left */
+}
+th {
+    background-color: rgb(206, 213, 219) /* Add a background color to headers */
+}
