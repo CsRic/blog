@@ -1,13 +1,13 @@
 body {
-    font-family: Georgia, 'Microsoft Yahei', serif;; 
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 2vw; /* 设置字体大小 */
-    background-color:rgb(224, 183, 173) ;
-    color: rgb(61, 38, 46);
+    background-color:rgb(215, 201, 198) ;
+    color: rgb(0, 0, 0);
     margin: 0;
     padding: 0;
 }
 
-@media (min-width: 1250px) { /* 当视口宽度超过1000px时，字体大小不再随视口变化 */
+@media (min-width: 1250px) { /* 当视口宽度超过1250px时，字体大小不再随视口变化 */
   body {
     font-size: 25px; /* 这里设置最大字体大小 */
   }
@@ -15,23 +15,44 @@ body {
 
 @media (max-width: 500px) { /* 当视口宽度小于500px时，字体大小不再随视口变化 */
   body {
-    font-size: 10px; /* 这里设置最小字体大小 */
+    font-size: 13px; /* 这里设置最小字体大小 */
   }
 }
 
 /* 大标题 */
 .title-container {
-  background-color: rgb(221, 119, 144); /* 这里设置你喜欢的颜色 */
-  padding: 1rem 0; /* 上下填充，左右为0 */
+  /* background-color: rgb(201, 88, 63); /* 这里设置你喜欢的颜色 */
+  position: fixed;
+  background-image: linear-gradient(to top,rgb(201, 88, 63) ,rgb(163, 89, 77));
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
   width: 100%;
   margin: 0rem; /* 移除外边距 */
   text-align: center; /* 文本居中 */
+  z-index: 100; /* 确保在内容之上 */
 }
-
 .title-container h1 {
-  
   margin: 0rem; /* 移除标题的默认外边距 */
   padding: 0rem; /* 如果需要，可以根据需要调整内边距 */
+}
+
+/* 左边列 */
+.left-column {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 20%; /* 调整宽度以适应你的需求 */
+  margin: 0rem; /* 移除外边距 */
+  overflow-y:auto; /* Enable the vertical scrollbar */
+  overflow-x: hidden;
+  direction: rtl; /* 设置文本方向为从右到左 */
+}
+
+/* 右边列 */
+.right-column {
+  margin-left: 25%; /* 确保右侧内容不被左侧悬浮列遮盖 */
+  margin-right: 5%;
+  overflow-y: auto; /* 如果需要滚动条 */
 }
 
 /* 这会更改所有超链接的颜色 */
@@ -43,6 +64,7 @@ a:hover {
     color: rgb(255, 0, 0);
 }
 
+/* 表格颜色 */
 table {
     width: 50%;
     border-collapse: collapse; /* Collapse borders */
@@ -54,4 +76,45 @@ th, td {
 }
 th {
     background-color: rgb(206, 213, 219) /* Add a background color to headers */
+}
+
+/* normal tab style */
+.normal-tab {
+  display: block;
+  background-color: #a1aab7;
+  border-bottom: 2px solid rgb(215, 201, 198) ; /* 设置底部边框的宽度、样式和颜色 */
+  padding: 0.2rem;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+.normal-tab:hover{
+  background-color: #ccddf4;
+}
+/* cracking sciences link tab style */
+.cs-link {
+  display: block;
+  background-color: #000000;
+  padding: 0.2rem;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.3s;
+  font-family: monospace;
+}
+.cs-link:hover {
+  background-color: #333333;
+}
+.cs-link h3 {
+  color: rgb(180, 0, 0);
+}
+.cs-link {
+  color: rgb(143, 143, 143);
+}
+.cs-link:hover h3 {
+  color: rgb(255, 0, 0);
+}
+.cs-link:hover {
+  color: rgb(255, 255, 255);
 }
