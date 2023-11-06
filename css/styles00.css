@@ -1,15 +1,17 @@
+body {
+    font-family: sans-serif;
+    background-color:rgb(233, 208, 208) ;
+    color: rgb(61, 38, 46);
+}
+
 /* 这会更改所有超链接的颜色 */
 a {
-    color: rgb(182, 167, 167);
+    color: rgb(224, 110, 90);
 }
 /* 这会只更改鼠标悬停时的颜色 */
 a:hover {
     color: rgb(255, 0, 0);
 }
-a:visited {
-    color: rgb(129, 116, 116);  /* 访问过的链接颜色 */
-}
-
 
 table {
     width: 50%;
@@ -23,3 +25,21 @@ th, td {
 th {
     background-color: rgb(206, 213, 219) /* Add a background color to headers */
 }
+
+/* 大标题 */
+
+.title-container {
+    background-color: rgb(233, 133, 87); /* 这里设置你喜欢的颜色 */
+    padding: 10px 0; /* 上下填充，左右为0 */
+    width: 100%;
+    margin: 0; /* 移除外边距 */
+    text-align: center; /* 文本居中 */
+}
+
+
+.title-container h1 {
+    font-size: 48px; /* 设置字体大小 */
+    margin: 0; /* 移除标题的默认外边距 */
+    padding: 0; /* 如果需要，可以根据需要调整内边距 */
+}
+
