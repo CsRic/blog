@@ -7,6 +7,18 @@ body {
     padding: 0;
 }
 
+@media (min-width: 1250px) { /* 当视口宽度超过1000px时，字体大小不再随视口变化 */
+  body {
+    font-size: 25px; /* 这里设置最大字体大小 */
+  }
+}
+
+@media (max-width: 500px) { /* 当视口宽度小于500px时，字体大小不再随视口变化 */
+  body {
+    font-size: 10px; /* 这里设置最小字体大小 */
+  }
+}
+
 /* 大标题 */
 .title-container {
   background-color: rgb(221, 119, 144); /* 这里设置你喜欢的颜色 */
@@ -17,7 +29,7 @@ body {
 }
 
 .title-container h1 {
-  font-size: 12vw; /* 设置字体大小 */
+  
   margin: 0rem; /* 移除标题的默认外边距 */
   padding: 0rem; /* 如果需要，可以根据需要调整内边距 */
 }
@@ -43,42 +55,3 @@ th, td {
 th {
     background-color: rgb(206, 213, 219) /* Add a background color to headers */
 }
-
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
-.menu {
-  display: flex;
-  justify-content: space-around;
-  background-color: #444;
-  padding: 0.5rem;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu a:hover {
-  color: #ddd;
-}
-
-.main {
-  padding: 1rem;
-}
-.footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-@media (max-width: 600px) {
-    .menu {
-      flex-direction: column;
-    }
-  }
