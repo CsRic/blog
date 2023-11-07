@@ -50,10 +50,11 @@ body {
 
 /* 右边列 */
 .right-column {
-  margin-left: 25%; /* 确保右侧内容不被左侧悬浮列遮盖 */
-  margin-right: 5%;
+  margin-left: 21%; /* 确保右侧内容不被左侧悬浮列遮盖 */
+  margin-right: 0%;
   overflow-y: auto; /* 如果需要滚动条 */
   padding-top: 2px;
+  right: 0;
 }
 
 /* 这会更改所有超链接的颜色 */
