@@ -1,8 +1,8 @@
 body {
   font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 2vw; /* 设置字体大小 */
-    background-color:rgb(215, 201, 198) ;
-    color: rgb(0, 0, 0);
+    background-color:rgb(241, 241, 241) ;
+    color: rgb(32, 32, 32);
     margin: 0;
     padding: 0;
 }
@@ -21,9 +21,9 @@ body {
 
 /* 大标题 */
 .title-container {
-  /* background-color: rgb(201, 88, 63); /* 这里设置你喜欢的颜色 */
-  position: fixed;
-  background-image: linear-gradient(to top,rgb(201, 88, 63) ,rgb(163, 89, 77));
+  background-color: #c8c8c8;/* 这里设置你喜欢的颜色 */
+  border-bottom: 2px solid rgb(241, 241, 241) ; /* 设置底部边框的宽度、样式和颜色 */
+  /*background-image: linear-gradient(to top,rgb(201, 88, 63) ,rgb(163, 89, 77));*/
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
   width: 100%;
@@ -53,6 +53,7 @@ body {
   margin-left: 25%; /* 确保右侧内容不被左侧悬浮列遮盖 */
   margin-right: 5%;
   overflow-y: auto; /* 如果需要滚动条 */
+  padding-top: 2px;
 }
 
 /* 这会更改所有超链接的颜色 */
@@ -66,55 +67,55 @@ a:hover {
 
 /* 表格颜色 */
 table {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse; /* Collapse borders */
 }
 th, td {
-    border: 0.1rem solid #000; /* Add border */
+    border: 2px solid rgb(163, 163, 163); /* Add border */
     padding: 0.3rem; /* Add some padding */
     text-align: left; /* Align text to the left */
 }
 th {
-    background-color: rgb(206, 213, 219) /* Add a background color to headers */
+    background-color: rgb(163, 163, 163) /* Add a background color to headers */
 }
 
 /* normal tab style */
 .normal-tab {
   display: block;
-  background-color: #a1aab7;
-  border-bottom: 2px solid rgb(215, 201, 198) ; /* 设置底部边框的宽度、样式和颜色 */
-  padding: 0.2rem;
+  background-color: #c8c8c8;
+  border-bottom: 2px solid rgb(241, 241, 241) ;
+  border-top: 2px solid rgb(241, 241, 241) ;
+  padding: 0rem;
   text-decoration: none;
   text-align: center;
   width: 100%;
-  transition: background-color 0.3s;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 0rem;
 }
 .normal-tab:hover{
-  background-color: #ccddf4;
+  background-color: #d45d5d;
 }
 /* cracking sciences link tab style */
 .cs-link {
   display: block;
-  background-color: #000000;
-  padding: 0.2rem;
+  background-color: #333333;
+  border-bottom: 2px solid rgb(241, 241, 241) ;
+  border-top: 2px solid rgb(241, 241, 241) ;
+  padding: 0rem;
   text-decoration: none;
   text-align: center;
   width: 100%;
-  transition: background-color 0.3s;
-  font-family: monospace;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 0rem;
 }
 .cs-link:hover {
-  background-color: #333333;
-}
-.cs-link h3 {
-  color: rgb(180, 0, 0);
+  background-color: rgb(0, 0, 0);
 }
 .cs-link {
-  color: rgb(143, 143, 143);
-}
-.cs-link:hover h3 {
-  color: rgb(255, 0, 0);
+  color: rgb(197, 0, 0);
 }
 .cs-link:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
 }

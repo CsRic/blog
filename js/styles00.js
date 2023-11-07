@@ -1,11 +1,14 @@
 function updateMargin() {
     // 获取.header元素的高度
-    var headerHeight = document.querySelector('.title-container').offsetHeight + 1;
-  
-    // 设置.left-column的top属性，确保它距离.header底部一定距离
-    document.querySelector('.left-column').style.top = headerHeight + 'px';
-    document.querySelector('.right-column').style.paddingTop = headerHeight + 'px';
+    var element  = document.querySelector('.title-container')
+    var rect = element.getBoundingClientRect();
+    var scrollTop = document.documentElement.scrollTop;
+    var elementBottom = rect.bottom + scrollTop;
+    var topHeight = (elementBottom > scrollTop ? elementBottom : 2);
+    document.querySelector('.left-column').style.top = topHeight + 'px';
+    var headerHeight = document.querySelector('.title-container').offsetHeight;
 }
 
 window.onload = updateMargin;
 window.onresize = updateMargin;
+window.onscroll = updateMargin;
