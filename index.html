@@ -11,10 +11,11 @@
 
 <body>
   <!-- header -->
-  <div class="title-container" id="head" onclick="showContent('head')">
-    <b></b>
-    <h1>Eternal Twilight</h1></b>
-    - csric's homepage -
+  <div class="title-container" >
+    <div id="head", class="title-container-element" id="head" onclick="showContent('head')">
+      <h1>Eternal Twilight</h1>
+      - csric's homepage -
+    </div>
   </div>
 
   <!-- left side -->
@@ -28,7 +29,7 @@
     <!-- game rank -->
     <div class="normal-tab" id="game_rank" onclick="showContent('game_rank')">
       <h3>
-        Game Rank
+        Game Ranking
       </h3>
     </div>
     <!-- cs link -->
@@ -49,7 +50,7 @@
   <!-- right side-->
   <div class="right-column" id="preview">
     <!-- sub page -->
-    <iframe id="iframePreview" src="./pages/home.html", width="100%", height="80%", style="border:none;"></iframe>
+    <iframe id="iframePreview" src="./pages/home.html", width="100%", height="85%", style="border:none; "></iframe>
   
   <script>
     function showContent(contentId) {

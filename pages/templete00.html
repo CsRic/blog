@@ -11,11 +11,26 @@
 
 <body>
   <!-- header -->
-  <div class="title-container">
-    <b></b>
-    <h1>Eternal Twilight</h1></b>
-    - csric's homepage -
+  <div class="title-container" >
+    <div id="home", class="title-container-element" style="width: 10%;">
+      <h3>Home</h3>
+    </div>
+    <div id="head", class="title-container-element" >
+      <h1>Head</h1>
+      head
+    </div>
   </div>
+  <!-- head link and home link-->
+  <script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function() {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function(){
+      window.top.location.href = "../index.html"; 
+    });
+  </script>
 
   <!-- right side-->
   <div class="right-column">

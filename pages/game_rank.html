@@ -23,16 +23,31 @@
     }
   </style>
 </head>
-
 <body>
   <!-- header -->
-  <div class="title-container">
-    <b></b>
-    <h1>Game Rank</h1></b>
-    just a joke :O
+  <div class="title-container" >
+    <div id="home", class="title-container-element" style="width: 10%;">
+      <h3>Home</h3>
+    </div>
+    <div id="head", class="title-container-element" >
+      <h1>Game Ranking</h1>
+      just a joke &nbsp;&nbsp; :o
+    </div>
   </div>
+  <!-- head link and home link-->
+  <script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function() {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function(){
+      window.top.location.href = "../index.html"; 
+    });
+  </script>
+
   <!-- form -->
-  <div style="margin-top: 2px;">
+  <div style="margin-top: 2px; margin-left: 4px">
     <table>
       <tr>
           <td style="background-color: rgb(255, 187, 61);
@@ -365,7 +380,6 @@
       </tr>
     </table>
   </div>
-小镇做题家是这样的, 什么东西都要分个三六九等😅
 </body>
 
 </html>
