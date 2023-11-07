@@ -83,7 +83,6 @@ table {
 }
 th, td {
     border: 2px solid rgb(163, 163, 163); /* Add border */
-    padding: 0.2rem; /* Add some padding */
     text-align: left; /* Align text to the left */
 }
 th {
