@@ -35,6 +35,7 @@ body {
   width: 100%;
   border-left: 2px solid rgb(241, 241, 241);
   border-right: 2px solid rgb(241, 241, 241);
+  margin: 0;
 }
 .title-container-element:hover{
   background-color: #d45d5d;
@@ -80,6 +81,7 @@ a:hover {
 table {
     width: 100%;
     border-collapse: collapse; /* Collapse borders */
+    font-size: 1vw;
 }
 th, td {
     border: 2px solid rgb(163, 163, 163); /* Add border */
@@ -92,7 +94,7 @@ th {
 /* normal tab style */
 .normal-tab {
   display: block;
-  background-color: #c8c8c8;
+  background-color: #878787;
   border-bottom: 2px solid rgb(241, 241, 241) ;
   border-top: 2px solid rgb(241, 241, 241) ;
   padding: 0rem;
@@ -105,6 +107,10 @@ th {
 }
 .normal-tab:hover{
   background-color: #d45d5d;
+}
+
+.normal-tab h3{
+  margin: 0.3rem;
 }
 /* cracking sciences link tab style */
 .cs-link {
@@ -119,6 +125,9 @@ th {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 2rem;
+}
+.cs-link h3{
+  margin: 0.3rem;
 }
 .cs-link:hover {
   background-color: rgb(0, 0, 0);
