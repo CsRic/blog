@@ -5,8 +5,10 @@ function updateMargin() {
     var scrollTop = document.documentElement.scrollTop;
     var elementBottom = rect.bottom + scrollTop;
     var topHeight = (elementBottom > scrollTop ? elementBottom : 2);
-    document.querySelector('.left-column').style.top = topHeight + 'px';
-    var headerHeight = document.querySelector('.title-container').offsetHeight;
+    if (document.querySelector('.left-column') !== null) {
+        document.querySelector('.left-column').style.top = topHeight + 'px';
+    }
+    // var headerHeight = document.querySelector('.title-container').offsetHeight;
 }
 
 window.onload = updateMargin;
