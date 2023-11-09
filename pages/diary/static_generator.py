@@ -30,7 +30,7 @@ def generate_tags_index(root_dir):
             else:
                 tags_index[tag] = [relative_path]
     # sort
-    tags_index = {k:sorted(v) for k,v in sorted(tags_index.items())}
+    tags_index = {k:sorted(v, reverse=True) for k,v in sorted(tags_index.items())}
     return tags_index
 
 def save_to_json(data, file_name):
