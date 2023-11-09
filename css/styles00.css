@@ -177,10 +177,10 @@ hr {
 
 button {
   background-color: var(--mid-gray-box-color); /* 使背景透明 */
-  border: 0.3vw solid var(--background-color);
+  border: 0.2rem solid var(--background-color);
   outline: none; /* 移除焦点时的轮廓 */
   box-shadow: none; /* 移除阴影 */
-  padding: 1vw 1vw; /* 添加一些内边距 */
+  padding: 0.2rem 0.2rem; /* 添加一些内边距 */
   cursor: pointer; /* 鼠标悬停时显示指针图标 */
 }
 
