@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20231108</title>
+  <link rel="stylesheet" href="../../../../css/styles00.css">
+  <script src="../../../../js/styles00.js"></script>
+  <link rel="icon" href="../../../../assets/images/fevicon.png" type="image/png">
+</head>
+
+<body>
+  <!-- header -->
+  <div class="title-container">
+    <div id="home" , class="title-container-element" style="width: 10%;">
+      <h3>Home</h3>
+    </div>
+    <div id="head" , class="title-container-element">
+      <h1 id="title">Create this blog</h1>
+    </div>
+  </div>
+  <!-- head link and home link-->
+  <script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+
+  <div class="diary-div">
+    tags:
+    <div class="tags">
+      <span>front-end</span>
+      |
+      <span>javascript</span>
+      |
+      <span>html</span>
+    </div>
+    <hr>
+    <div>
+      第一篇内容. 我借助ChatGPT建立了纯html的静态网页, 挂载在gitpage上. 完全不懂前端三剑客, 但是我现在能在短时间内做成这件事, 多亏了LLM.
+      <br>
+      我研究过一些静态博客框架, 主要是hexo, 但是我不打算用它们. 它们很华丽, 功能也全, 但是有很多我用不到. 要做自定义化得动很多东西, 还要看文档. 我太懒了, 自定义化要花的心思太多, 还不如搞个最基础的东西.
+      这就是程序员的宿命, 造轮子.
+      <br>
+      我打算在每个post中加上tags(存在class="tags"的div块中), 然后用一个python脚本生成tag_list.json, 记录每个tag所对应的博客. 出于一些安全限制,
+      javascript在静态网页上不能遍历仓库内容, 所以我得先在本地生成所需的数据结构, 即tag_list.json. 然后diary entry就可以凭借这个指定的文件生成tag搜索器了.
+      <br>
+      这篇post是直接写在html中的. 我需要找一种能把markdown转化成html的工具, 当然, 得保留我自定义的html界面风格, 还有标签机制. 直接写在markdown中就快多了. 以后如果我发现了更多麻烦的需求,
+      说不定会屈服于博客框架.
+    </div>
+  </div>
+</body>
+
+</html>

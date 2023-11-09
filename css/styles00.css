@@ -1,8 +1,20 @@
+:root{
+  --prime-text-color: rgb(32, 32, 32);
+  --background-color: rgb(241, 241, 241);
+  --light-gray-box-color: #c8c8c8;
+  --mid-gray-box-color: #878787;
+  --heavy-gray-box-color:  rgb(65, 65, 65);
+  --reverse-text-color: rgb(241, 241, 241);
+  --box-hover-color:#d45d5d;
+}
+
+
+
 body {
   font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 2vw; /* 设置字体大小 */
-    background-color:rgb(241, 241, 241) ;
-    color: rgb(32, 32, 32);
+    background-color:var(--background-color);
+    color: var(--prime-text-color);
     margin: 0;
     padding: 0;
 }
@@ -21,10 +33,10 @@ body {
 
 /* 大标题 */
 .title-container {
-  background-color: #c8c8c8;
-  border-bottom: 2px solid rgb(241, 241, 241);
-  border-left: 2px solid rgb(241, 241, 241);
-  border-right: 2px solid rgb(241, 241, 241);
+  background-color: var(--light-gray-box-color);
+  border-bottom: 2px solid var(--background-color);
+  border-left: 2px solid var(--background-color);
+  border-right: 2px solid var(--background-color);
   padding-top: 0;
   padding-bottom: 0;
   width: calc(100% - 4px);
@@ -33,19 +45,19 @@ body {
 }
 .title-container-element{
   width: 100%;
-  border-left: 2px solid rgb(241, 241, 241);
-  border-right: 2px solid rgb(241, 241, 241);
+  border-left: 2px solid var(--background-color);
+  border-right: 2px solid var(--background-color);
   margin: 0;
 }
 .title-container-element:hover{
-  background-color: #d45d5d;
+  background-color: var(--box-hover-color);
+  cursor: pointer;
 }
+
 .title-container-element h1,
 .title-container-element h2{
   margin: 0rem;
-  padding: 0rem;
 }
-
 /* 左边列 */
 .left-column {
   position: fixed;
@@ -56,7 +68,7 @@ body {
   overflow-y:auto; /* Enable the vertical scrollbar */
   overflow-x: hidden;
   direction: rtl; /* 设置文本方向为从右到左 */
-  border-left: 4px solid rgb(241, 241, 241);
+  border-left: 4px solid var(--background-color);
 }
 
 /* 右边列 */
@@ -70,7 +82,7 @@ body {
 
 /* 这会更改所有超链接的颜色 */
 a {
-    color: rgb(224, 110, 90);
+    color: var(--box-hover-color);
 }
 /* 这会只更改鼠标悬停时的颜色 */
 a:hover {
@@ -84,19 +96,19 @@ table {
     font-size: 1vw;
 }
 th, td {
-    border: 2px solid rgb(163, 163, 163); /* Add border */
+    border: 2px solid var(--mid-gray-box-color); /* Add border */
     text-align: left; /* Align text to the left */
 }
 th {
-    background-color: rgb(163, 163, 163) /* Add a background color to headers */
+    background-color: var(--mid-gray-box-color) /* Add a background color to headers */
 }
 
 /* normal tab style */
 .normal-tab {
   display: block;
-  background-color: #878787;
-  border-bottom: 2px solid rgb(241, 241, 241) ;
-  border-top: 2px solid rgb(241, 241, 241) ;
+  background-color: var(--mid-gray-box-color);
+  border-bottom: 2px solid var(--background-color) ;
+  border-top: 2px solid var(--background-color) ;
   padding: 0rem;
   text-decoration: none;
   text-align: center;
@@ -106,7 +118,8 @@ th {
   line-height: 2rem;
 }
 .normal-tab:hover{
-  background-color: #d45d5d;
+  background-color: var(--box-hover-color);
+  cursor: pointer;
 }
 
 .normal-tab h3{
@@ -116,8 +129,8 @@ th {
 .cs-link {
   display: block;
   background-color: #333333;
-  border-bottom: 2px solid rgb(241, 241, 241) ;
-  border-top: 2px solid rgb(241, 241, 241) ;
+  border-bottom: 2px solid var(--background-color) ;
+  border-top: 2px solid var(--background-color) ;
   padding: 0rem;
   text-decoration: none;
   text-align: center;
@@ -137,4 +150,47 @@ th {
 }
 .cs-link:hover {
   color: rgb(255, 0, 0);
+  cursor: pointer;
+}
+
+.non-diff-href{
+  color: inherit;
+  position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+}
+
+.non-diff-href:hover{
+  text-decoration: none; 
+  color: inherit;
+  cursor: pointer;
+}
+
+hr {
+  border: 0; /* 移除默认边框 */
+  width:90%;
+  border-top: 0.2vw solid var(--prime-text-color); /* 添加上边框 */
+}
+
+.diary-div{
+  margin: 2px auto; 
+  width:90%; 
+}
+
+button {
+  background-color: var(--mid-gray-box-color); /* 使背景透明 */
+  border: 0.3vw solid var(--background-color);
+  outline: none; /* 移除焦点时的轮廓 */
+  box-shadow: none; /* 移除阴影 */
+  padding: 1vw 1vw; /* 添加一些内边距 */
+  cursor: pointer; /* 鼠标悬停时显示指针图标 */
+}
+
+/* 鼠标悬停时的样式 */
+button:hover {
+  background-color: var(--heavy-gray-box-color); /* 悬停时的背景颜色 */
+  color: var(--reverse-text-color);
+}
+
+/* 鼠标点击时的样式 */
+button:active {
+  background-color: var(--box-hover-color); /* 点击时的背景颜色 */
 }

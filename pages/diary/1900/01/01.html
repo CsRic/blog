@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eternal Twilight</title>
+  <link rel="stylesheet" href="../../../../css/styles00.css">
+  <script src="../../../../js/styles00.js"></script>
+  <link rel="icon" href="../../../../assets/images/fevicon.png" type="image/png">
+</head>
+
+<body>
+  <!-- header -->
+  <div class="title-container">
+    <div id="home" , class="title-container-element" style="width: 10%;">
+      <h3>Home</h3>
+    </div>
+    <div id="head" , class="title-container-element">
+      <h1 id="title">title here</h1>
+    </div>
+  </div>
+  <!-- head link and home link-->
+  <script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+
+  <div class="diary-div">
+    tags:
+    <div class="tags">
+    </div>
+    <hr>
+    <div style="margin-top: 2px; margin-left: 4px;">
+      Content here.
+    </div>
+  </div>
+</body>
+
+</html>

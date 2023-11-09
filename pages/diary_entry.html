@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diary Entry</title>
+  <link rel="stylesheet" href="../css/styles00.css">
+  <script src="../js/styles00.js"></script>
+  <link rel="icon" href="../assets/images/fevicon.png" type="image/png">
+  <script>
+    // 当页面加载完成时执行此函数
+    document.addEventListener('DOMContentLoaded', function () {
+      // 使用fetch API异步加载tags.json文件
+      fetch('./diary/tag_index.json')
+        .then(response => response.json())
+        .then(tagsIndex => {
+          // 使用tagsIndex生成标签列表
+          const tagsContainer = document.getElementById('tags-container');
+          for (const tag in tagsIndex) {
+            // 为每个标签创建一个按钮
+            const tagButton = document.createElement('button');
+            tagButton.innerText = tag;
+            tagButton.onclick = function () {
+              displayDiariesWithTag(tag, tagsIndex[tag]);
+            };
+            tagsContainer.appendChild(tagButton);
+          }
+        });
+    });
+    // 显示指定标签的日记链接
+    function displayDiariesWithTag(tag, diaries) {
+      const diariesContainer = document.getElementById('diaries-container');
+      diariesContainer.innerHTML = ''; // 清空之前的内容
+
+      diaries.forEach(diary => {
+        // 为每个日记创建一个链接
+        const diaryLink = document.createElement('a');
+        var link = "./diary/" + diary;
+        diaryLink.href = link
+        // 替换掉链接文本中的'.html'部分
+        diaryLink.innerText = diary.replace('.html', '');
+        diaryLink.target = "_blank"; // 在新标签页中打开链接
+
+        // 创建一个容器来放置链接和标题
+        const diaryEntry = document.createElement('div');
+        diaryEntry.appendChild(diaryLink);
+
+        // 使用fetch API异步加载每个日记的HTML内容
+        fetch(link)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const titleElement = doc.getElementById('title');
+            // 获取标题文本并创建一个文本节点
+            if (titleElement) {
+              const titleText = document.createTextNode(' - ' + titleElement.innerText);
+              diaryEntry.appendChild(titleText); // 将标题添加到链接旁边
+            }
+          }).catch(error => {
+            console.error('Error fetching diary:', error);
+          });
+
+        // 将日记条目添加到容器中
+        diariesContainer.appendChild(diaryEntry);
+        diariesContainer.appendChild(document.createElement('br')); // 添加换行
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <!-- header -->
+  <div class="title-container">
+    <div id="home" , class="title-container-element" style="width: 10%;">
+      <h3>Home</h3>
+    </div>
+    <div id="head" , class="title-container-element">
+      <h1>Diary Entry</h1>
+      keep it simple
+    </div>
+  </div>
+  <!-- head link and home link-->
+  <script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../index.html";
+    });
+  </script>
+  
+  <div class="diary-div">
+    tags:
+    <br>
+    <div id="tags-container">
+      <!-- 标签按钮将被添加到这里 -->
+    </div>
+    results:
+    <br>
+    <div id="diaries-container">
+      <!-- 点击标签后，日记链接将显示在这里 -->
+    </div>
+  </div>
+</body>
+
+</html>
