@@ -1,4 +1,7 @@
 {
+    "cynical": [
+        "2023/11/09.html"
+    ],
     "front-end": [
         "2023/11/08.html"
     ],
@@ -8,11 +11,17 @@
     "javascript": [
         "2023/11/08.html"
     ],
+    "music": [
+        "2023/11/09.html"
+    ],
     "test tag 0": [
         "1900/01/01.html"
     ],
     "test tag 1": [
         "2023/11/08.html",
         "1900/01/01.html"
+    ],
+    "tonality": [
+        "2023/11/09.html"
     ]
 }
