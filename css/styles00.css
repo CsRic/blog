@@ -166,8 +166,8 @@ th {
 
 hr {
   border: 0; /* 移除默认边框 */
-  width:90%;
-  border-top: 0.2vw solid var(--prime-text-color); /* 添加上边框 */
+  width:100%;
+  border-top: 0.2vw solid var(--mid-gray-box-color); /* 添加上边框 */
 }
 
 .diary-div{
