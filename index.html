@@ -48,6 +48,12 @@
         About Me
       </h3>
     </div>
+    <!-- recursion -->
+    <div class="normal-tab" id="recursion" onclick="showContent('recursion')">
+      <h3>
+        Recursion LOL
+      </h3>
+    </div>
   </div>
   <!-- right side-->
   <div class="right-column" id="preview">
@@ -63,6 +69,8 @@
         src = "./pages/game_rank.html";
       }else if(contentId === 'about_me') {
         src = "./pages/about_me.html";
+      }else if(contentId === 'recursion'){
+        src = "index.html"
       }else {
         src = "./pages/home.html"
       }
