@@ -131,6 +131,7 @@ h3, h4等类型的div块, 并生成带有缩进的可跳转目录.
           var a = document.createElement('a');
           a.textContent = heading.textContent;
           a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
           // indentation
           var level = parseInt(heading.tagName.substring(1));
           li.style.marginLeft = (level - 1) * 20 + 'px'; 

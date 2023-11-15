@@ -8,26 +8,37 @@
   --box-hover-color:#d45d5d;
 }
 
+html {
+  font-size: 16px; /* 默认字体大小 */
+}
 
 
 body {
   font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 2vw; /* 设置字体大小 */
     background-color:var(--background-color);
     color: var(--prime-text-color);
     margin: 0;
     padding: 0;
 }
 
-@media (min-width: 1000px) { /* 当视口宽度超过1000px时，字体大小不再随视口变化 */
-  body {
-    font-size: 20px; /* 这里设置最大字体大小 */
+/* 小屏幕设备（手机） */
+@media (max-width: 600px) {
+  html {
+    font-size: 14px; /* 较小的屏幕，字体略小 */
   }
 }
 
-@media (max-width: 300px) { /* 当视口宽度小于200px时，字体大小不再随视口变化 */
-  body {
-    font-size: 15px; /* 这里设置最小字体大小 */
+/* 中等屏幕设备（平板电脑） */
+@media (min-width: 601px) and (max-width: 1024px) {
+  html {
+    font-size: 16px; /* 中等屏幕，标准字体大小 */
+  }
+}
+
+/* 大屏幕设备（桌面电脑） */
+@media (min-width: 1025px) {
+  html {
+    font-size: 18px; /* 较大的屏幕，字体略大 */
   }
 }
 

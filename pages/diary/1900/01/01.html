@@ -111,6 +111,7 @@
           var a = document.createElement('a');
           a.textContent = heading.textContent;
           a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
           // indentation
           var level = parseInt(heading.tagName.substring(1));
           li.style.marginLeft = (level - 1) * 20 + 'px'; 
