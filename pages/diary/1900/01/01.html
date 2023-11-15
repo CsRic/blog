@@ -15,11 +15,17 @@
     <div id="home" , class="title-container-element" style="width: 10%;">
       <h3>Home</h3>
     </div>
+    <div id="prev" , class="title-container-element" style="width: 10%;">
+      <h3>Prev</h3>
+    </div>
     <div id="head" , class="title-container-element">
       <h1 id="title">
         <!-- title here -->
       </h1>
       <!-- time here -->
+    </div>
+    <div id="next" , class="title-container-element" style="width: 10%;">
+      <h3>Next</h3>
     </div>
   </div>
   <!-- head link and home link-->
@@ -34,6 +40,50 @@
     });
   </script>
 
+  <!-- prev and next link -->
+  <script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
   <div class="diary-div">
     <div style="margin-top: 2px; margin-left: 4px;">
       <div class="right-column">

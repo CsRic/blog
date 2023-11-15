@@ -13,10 +13,16 @@
 <div class="title-container-element" id="home" style="width: 10%;">
 <h3>Home</h3>
 </div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
 <div class="title-container-element" id="head">
 <h1 id="title">Test the automated workflow for new posts</h1>
 <!-- time here -->
 last update: 2023/11/15</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
 </div>
 <!-- head link and home link-->
 <script>
@@ -27,6 +33,50 @@ last update: 2023/11/15</div>
     var home = document.getElementById('home');
     home.addEventListener('click', function () {
       window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
     });
   </script>
 <div class="diary-div">
