@@ -67,7 +67,7 @@ body {
   margin: 0rem; /* 移除外边距 */
   overflow-y:auto; /* Enable the vertical scrollbar */
   overflow-x: hidden;
-  direction: rtl; /* 设置文本方向为从右到左 */
+  /*direction: rtl; /* 设置文本方向为从右到左 */
   border-left: 4px solid var(--background-color);
 }
 

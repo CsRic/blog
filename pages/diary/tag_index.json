@@ -2,6 +2,12 @@
     "ableton live": [
         "2023/11/11.html"
     ],
+    "chatgpt": [
+        "2023/11/15.html"
+    ],
+    "css": [
+        "2023/11/15.html"
+    ],
     "cynical": [
         "2023/11/09.html"
     ],
@@ -12,37 +18,43 @@
         "2023/11/11.html"
     ],
     "front-end": [
+        "2023/11/15.html",
         "2023/11/14.html",
         "2023/11/08.html"
     ],
     "html": [
+        "2023/11/15.html",
         "2023/11/14.html",
         "2023/11/08.html"
     ],
     "javascript": [
+        "2023/11/15.html",
         "2023/11/08.html"
     ],
     "music": [
         "2023/11/11.html",
         "2023/11/09.html"
     ],
+    "pandoc": [
+        "2023/11/15.html"
+    ],
     "producer": [
         "2023/11/11.html"
+    ],
+    "python": [
+        "2023/11/15.html"
     ],
     "reaper": [
         "2023/11/11.html"
     ],
-    "test tag 0": [
-        "1900/01/01.html"
-    ],
-    "test tag 1": [
-        "2023/11/08.html",
-        "1900/01/01.html"
+    "script": [
+        "2023/11/15.html"
     ],
     "tonality": [
         "2023/11/09.html"
     ],
     "workflow": [
+        "2023/11/15.html",
         "2023/11/14.html"
     ]
 }
