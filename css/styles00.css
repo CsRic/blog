@@ -56,10 +56,12 @@ body {
 }
 .title-container-element{
   width: 100%;
-  min-width: 80px;
+  min-width: 50px;
   border-left: 2px solid var(--background-color);
   border-right: 2px solid var(--background-color);
   margin: 0;
+
+  word-break: break-all;
 }
 .title-container-element:hover{
   background-color: var(--box-hover-color);
