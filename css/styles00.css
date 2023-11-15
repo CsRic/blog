@@ -56,6 +56,7 @@ body {
 }
 .title-container-element{
   width: 100%;
+  min-width: 80px;
   border-left: 2px solid var(--background-color);
   border-right: 2px solid var(--background-color);
   margin: 0;
@@ -104,7 +105,7 @@ a:hover {
 table {
     width: 100%;
     border-collapse: collapse; /* Collapse borders */
-    font-size: 1vw;
+    font-size: 1rem;
 }
 th, td {
     border: 2px solid var(--mid-gray-box-color); /* Add border */
@@ -126,7 +127,7 @@ th {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  line-height: 1.8vw;
+  line-height: 1rem;
 }
 .normal-tab:hover{
   background-color: var(--box-hover-color);
@@ -148,7 +149,7 @@ th {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  line-height: 1.8vw;
+  line-height: 1rem;
 }
 .cs-link h3{
   margin: 0.3rem;
