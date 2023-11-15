@@ -61,7 +61,7 @@ body {
   border-right: 2px solid var(--background-color);
   margin: 0;
 
-  word-break: break-all;
+  word-wrap: break-word;
 }
 .title-container-element:hover{
   background-color: var(--box-hover-color);

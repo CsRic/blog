@@ -114,7 +114,7 @@
           a.style.textDecoration = 'none';
           // indentation
           var level = parseInt(heading.tagName.substring(1));
-          li.style.marginLeft = (level - 1) * 20 + 'px'; 
+          li.style.marginLeft = (level - 1) + 'rem'; 
           li.appendChild(a);
           sidebarList.appendChild(li);
       });
