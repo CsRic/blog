@@ -68,9 +68,6 @@ def main():
     os.remove(temp_md_file)  # 删除临时文件
     
     print(f'HTML generated: {output_file}')
-    
-    # static generator
-    subprocess.run(['python', 'static_generator.py'], check=True)
 
 if __name__ == '__main__':
     main()
