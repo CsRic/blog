@@ -220,6 +220,19 @@ blockquote:before {
   content: "\201C"; /* 添加左引号 */
   color: var(--mid-gray-box-color); /* 设置引号颜色 */
   font-size: 4rem; /* 设置引号大小 */
-  line-height: 1rem; /* 设置引号行高 */
-  margin-right: 0.25rem; /* 设置引号右边距 */
+  line-height: 0.1em; /* 设置引号行高 */
+  margin-right: 0.25em; /* 设置引号右边距 */
+  vertical-align: -0.4em; /* 设置引号垂直对齐 */
+}
+
+pre {
+  font-family: 'Courier New', monospace; /* 等宽字体 */
+  background-color: var(--heavy-gray-box-color); /* 背景色 */
+  border: 2px solid var(--mid-gray-box-color); /* 边框 */
+  padding: 10px; /* 内边距 */
+  margin: 1em 0; /* 外边距 */
+  color: var(--reverse-text-color); /* 文本颜色 */
+  overflow: auto; /* 自动滚动条 */
+  white-space: pre-wrap; /* 自动换行 */
+  word-wrap: break-word; /* 长单词换行 */
 }
