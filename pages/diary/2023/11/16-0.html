@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Music playlist: how to synchronize?</h1>
+<!-- time here -->
+last update: 2023/11/16</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>music</span> | <span>playlist</span> | <span>m3u8</span> | <span>m3u</span> | <span>netease</span></div>
+<hr/>
+<div id="markdown_content"><p>我希望在各个音乐平台上同步我的歌单.
+现在登录网易云音乐要时不时挂上回国的梯子, 有时会不方便.
+spotify的同人歌曲曲库没有网易云全(因为后者无视版权), 系统各方面都很烂,
+但是在部分领域的曲库会更全, 因为先锋性的实验音乐艺术家登录了spotify.</p>
+<p>无论如何, 把歌单同步是个好主意, 这是我的财产.
+我也希望能用AIMP播放本地歌单.</p>
+<h2 id="m3u-file">m3u file</h2>
+<p>真幸运, 世界上有个通用的歌单格式!</p>
+<p><a href="https://en.wikipedia.org/wiki/M3U">M3U</a> 是纯文本,
+记录了一整个歌单信息, 用链接指向每首曲子的音源.</p>
+<blockquote>
+<p>Each entry carries one specification. The specification can &gt; be
+any one of the following:</p>
+<ul>
+<li>an absolute local pathname; e.g., C:Music.mp3</li>
+<li>a local pathname relative to the M3U file location;
+e.g. Heavysets.mp3</li>
+<li>a URL</li>
+<li>from <a href="https://en.wikipedia.org/wiki/M3U">wikipedia</a></li>
+</ul>
+</blockquote>
+<h3 id="跨平台对应歌曲">跨平台对应歌曲</h3>
+<p>歌单指向的是曲子的链接, 那么在不同的平台,
+如何能识别这是哪首歌并在自己的库中找到(或者空缺)呢?</p>
+<p>M3U有拓展格式, 在链接之外描述歌曲信息, 比如艺术家 - 曲名:</p>
+<pre><code>#EXTM3U
+ 
+#EXTINF:123, Sample artist - Sample title
+C:\Documents and Settings\I\My Music\Sample.mp3
+ 
+#EXTINF:321,Example Artist - Example title
+C:\Documents and Settings\I\My Music\Greatest Hits\Example.ogg</code></pre>
+<p>这里用#EXTINF修饰了曲目.</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 43%"/>
+<col style="width: 23%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Directive</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>#EXTINF</td>
+<td>track information: runtime in seconds<br/> and display title of the
+following resource</td>
+<td>#EXTINF:123,Artist Name – Track Title <br/> artist - title.mp3</td>
+</tr>
+<tr class="even">
+<td>#EXTINF</td>
+<td>additional properties as key-value pairs</td>
+<td>#EXTINF:123 <br/> logo=“cover.jpg”,Track Title</td>
+</tr>
+</tbody>
+</table>
+<p>还有很多拓展信息. 这些信息提供了一个平台无关的元数据集合.
+我的同步需求有实现的可能性了.</p>
+<h3 id="导入导出工具">导入导出工具</h3>
+<p><a href="https://github.com/mkmark/netease-cloudmusic-playlist-exporter">Netease
+Cloudmusic Playlist Exporter</a> <a href="https://www.mkmark.net/blog/devlog/netease-cloudmusic-playlist-exporter/">描述</a></p>
+<p>尝试中…</p>
+<h2 id="自动化同步">自动化同步</h2>
+<p>WIP</p>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
