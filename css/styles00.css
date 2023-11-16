@@ -108,7 +108,6 @@ a:hover {
 table {
     width: 100%;
     border-collapse: collapse; /* Collapse borders */
-    font-size: 1rem;
 }
 th, td {
     border: 2px solid var(--mid-gray-box-color); /* Add border */
@@ -209,4 +208,18 @@ button:hover {
 /* 鼠标点击时的样式 */
 button:active {
   background-color: var(--box-hover-color); /* 点击时的背景颜色 */
+}
+
+blockquote {
+  border-left: 4px solid var(--mid-gray-box-color);
+  background-color: var(--light-gray-box-color);
+  margin: 1rem;
+}
+
+blockquote:before {
+  content: "\201C"; /* 添加左引号 */
+  color: var(--mid-gray-box-color); /* 设置引号颜色 */
+  font-size: 4rem; /* 设置引号大小 */
+  line-height: 1rem; /* 设置引号行高 */
+  margin-right: 0.25rem; /* 设置引号右边距 */
 }
