@@ -83,6 +83,7 @@ body {
   overflow-x: hidden;
   /*direction: rtl; /* 设置文本方向为从右到左 */
   border-left: 4px solid var(--background-color);
+  border-right: 4px Dashed var(--light-gray-box-color);
 }
 
 /* 右边列 */
