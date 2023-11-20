@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Am I artist?</h1>
+<!-- time here -->
+last update: 2023/11/20</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>music</span> | <span>producer</span></div>
+<hr/>
+<div id="markdown_content"><p>我是艺人吗? 艺人或多或少要为听众服务, 我不想服务.</p>
+<p>首先我不会去做纯功能性舞曲, 我的时间不应该奉献给花天酒地的公子哥.
+我希望做纯粹欣赏性的音乐, 不添加过多无意义的东西.</p>
+<h2 id="意义与无意义">意义与无意义</h2>
+<p>有意义的是表达核心思想的旋律, 音色或节奏,
+如果用更现代的眼光来看就是引发情感的音波(另一种角度, 频谱).</p>
+<p>无意义的是扩充功能性的部分, 它是模板, 是定式, 千篇一律.
+Trance厚重的kick, house的open hat都是无意义. 一些旋律或和弦也是无意义,
+它们扩充丰富度却不是主要组件, 哪怕删掉了也没造成空洞.</p>
+<h2 id="可听性">可听性</h2>
+<p>我认为纯意义的组成也具有可听性. 因为我认为的纯意义至少可以被我解析,
+我能解析的, 应该还是蛮好听的.</p>
+<p>但是很多人喜欢模板思维,
+添加大量无意义去维持一个更多人认可的可听性.</p>
+<p>在我的制作计划中, 也是需要一定的无意义去帮助我组织结构, 提高产能.
+但是时刻记着, 如果它没用, 不要加.</p>
+<h2 id="服务对象">服务对象</h2>
+<p>我的第一服务对象是我自己. 其次是知音. 我从未考虑大众.</p>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
