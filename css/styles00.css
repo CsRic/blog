@@ -6,6 +6,7 @@
   --heavy-gray-box-color:  rgb(65, 65, 65);
   --reverse-text-color: rgb(241, 241, 241);
   --box-hover-color:#d45d5d;
+  --border-radius: 10px;
 }
 
 html {
@@ -44,7 +45,7 @@ body {
 
 /* 大标题 */
 .title-container {
-  background-color: var(--light-gray-box-color);
+  background-color: var(--background-color);
   border-bottom: 2px solid var(--background-color);
   border-left: 2px solid var(--background-color);
   border-right: 2px solid var(--background-color);
@@ -55,6 +56,7 @@ body {
   display: flex;
 }
 .title-container-element{
+  background-color: var(--light-gray-box-color);
   width: 100%;
   min-width: 50px;
   border-left: 2px solid var(--background-color);
@@ -77,7 +79,7 @@ body {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: calc(20% - 2px); /* 调整宽度以适应你的需求 */
+  width: calc(20% - 4px); /* 调整宽度以适应你的需求 */
   margin: 0rem; /* 移除外边距 */
   overflow-y:auto; /* Enable the vertical scrollbar */
   overflow-x: hidden;
@@ -88,7 +90,7 @@ body {
 
 /* 右边列 */
 .right-column {
-  margin-left: calc(20% + 2px); /* 确保右侧内容不被左侧悬浮列遮盖 */
+  margin-left: calc(20% + 4px); /* 确保右侧内容不被左侧悬浮列遮盖 */
   margin-right: 2px;
   overflow-y: auto; /* 如果需要滚动条 */
   padding-top: 2px;
@@ -107,14 +109,15 @@ a:hover {
 /* 表格 */
 table {
     width: 100%;
-    border-collapse: collapse; /* Collapse borders */
+    border-collapse: collapse; 
+    border-spacing: 0;
 }
 th, td {
     border: 2px solid var(--mid-gray-box-color); /* Add border */
     text-align: left; /* Align text to the left */
 }
 th {
-    background-color: var(--mid-gray-box-color) /* Add a background color to headers */
+    background-color: var(--mid-gray-box-color); /* Add a background color to headers */
 }
 
 /* normal tab style */
@@ -152,6 +155,7 @@ th {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1rem;
+  border-radius: var(--border-radius);
 }
 .cs-link h3{
   margin: 0.3rem;
@@ -213,18 +217,19 @@ button:active {
 blockquote {
   border-left: 4px solid var(--mid-gray-box-color);
   background-color: var(--light-gray-box-color);
-  margin: 1rem;
+  margin: 1em 0;
 }
 
+/*
 blockquote:before {
-  content: "\201C"; /* 添加左引号 */
-  color: var(--mid-gray-box-color); /* 设置引号颜色 */
-  font-size: 4rem; /* 设置引号大小 */
-  line-height: 0.1em; /* 设置引号行高 */
-  margin-right: 0.25em; /* 设置引号右边距 */
-  vertical-align: -0.4em; /* 设置引号垂直对齐 */
+  content: "\201C"; 
+  color: var(--mid-gray-box-color); 
+  font-size: 4rem; 
+  line-height: 0.1em; 
+  margin-right: 0.25em; 
+  vertical-align: -0.4em; 
 }
-
+*/
 pre {
   font-family: 'Courier New', monospace; /* 等宽字体 */
   background-color: var(--heavy-gray-box-color); /* 背景色 */
@@ -235,4 +240,12 @@ pre {
   overflow: auto; /* 自动滚动条 */
   white-space: pre-wrap; /* 自动换行 */
   word-wrap: break-word; /* 长单词换行 */
+}
+
+button {
+  border-radius: 8px;
+}
+
+div, pre, blockquote {
+  border-radius: var(--border-radius);
 }
