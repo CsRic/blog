@@ -79,7 +79,7 @@ body {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: calc(20% - 4px); /* 调整宽度以适应你的需求 */
+  width: calc(20% - 2px); /* 调整宽度以适应你的需求 */
   margin: 0rem; /* 移除外边距 */
   overflow-y:auto; /* Enable the vertical scrollbar */
   overflow-x: hidden;
