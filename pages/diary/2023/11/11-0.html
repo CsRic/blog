@@ -1,27 +1,31 @@
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ET Diary</title>
-  <link rel="stylesheet" href="../../../../css/styles00.css">
-  <script src="../../../../js/styles00.js"></script>
-  <link rel="icon" href="../../../../assets/images/fevicon.png" type="image/png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
 </head>
-
 <body>
-  <!-- header -->
-  <div class="title-container">
-    <div id="home" , class="title-container-element" style="width: 10%;">
-      <h3>Home</h3>
-    </div>
-    <div id="head" , class="title-container-element">
-      <h1 id="title">Daw comparison</h1>
-      2023/11/11
-    </div>
-  </div>
-  <!-- head link and home link-->
-  <script>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Daw comparison</h1>
+<!-- time here -->
+last update: 2023/12/06</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
     var head = document.getElementById('head');
     head.addEventListener('click', function () {
       window.top.location.href = window.location.href;
@@ -31,70 +35,162 @@
       window.top.location.href = "../../../../index.html";
     });
   </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
 
-  <div class="diary-div">
-    tags:
-    <div class="tags">
-      <span>music</span>
-      |
-      <span>producer</span>
-      |
-      <span>daw</span>
-      |
-      <span>ableton live</span>
-      |
-      <span>fl studio</span>
-      |
-      <span>reaper</span>
-    </div>
-    <hr>
-    <div style="margin-top: 2px; margin-left: 4px;">
-      我的起点是FL Studio 11. 现在它出到21了. 到现在已经有六年了吧.<br>
-      pros:<br>
-      <ul>
-        <li>FL的界面非常漂亮, 有连贯的动画效果, 保留拟物基因的扁平元素非常容易识别; 所有图标大小适中, 方便键鼠操作.</li>
-        <li>原生插件有独到之处. 比如Grossbeat, 简直是state-of-the-art的时间调制效果器; Harmor依然是不好操作但最强大的加法合成器. 基础的混音效果器也没有短板.</li>
-        <li>彩色音频. 多段频率的颜色混合, 非常直观. 对于做采样"拼贴艺术"的制作人来说这个功能太好用了. 你在艺术思考时是不愿意看文件名的, 只想看到颜色.</li>
-        <li>Pattern逻辑, 你不会用才会觉得不好用. 另一方面, FL新的线性工作流是很成功的, 不停试错也不会把整个工程弄得一团糟.</li>
-        <li>漂亮的钢琴窗, 好用的钢琴窗. 还有python api, 可以用程序生成谱子了.</li>
-      </ul>
-      cons:<br>
-      <ul>
-        <li>作为核心组件的Patcher, 缺少插件窗口管理, 每次都得一遍遍打开插件窗口; 想第三方插件的Params需要点好多下; Patcher的macro同样难用, 想要调整映射值得新建formula controller或者x-y-z controller. 这是FL的核心致命缺陷. 这个缺陷实在太大了. 这个缺陷会搞死FL的.</li>
-        <li>混音台参数能被鼠标滚轮滚动, 一不小心就乱了.</li>
-      </ul>
-      然后是人见人爱的Ableton Live. 我从10的末期开始尝试, 现在它出到了11.<br>
-      pros:<br>
-      <ul>
-        <li>Max for Live. 低代码的插件试验场. 不懂程序的艺术家也可以做独特的插件. 但是在这劣币占绝大部分的世界里, 会用Max的是极少的良币, 在这之中有很多本身懂编程, 他们不一定愿意用Max. 直接用JUCE库去写vst不是更好吗?</li>
-        <li>内嵌窗口的原生插件. 这同样算是Max的独特优势. 窗口不会一团糟, 轨道的效果器链配置情况一目了然.</li>
-        <li>Macro管理. 超高速的macro链接方案, 音色设计的试验场. 超高速的automation方案.</li>
-        <li>Group混音流派. 你只能用Group混音流.</li>
-        <li>强大的原生插件. 有好多古怪的小玩意. 这还没算上Max的更多奇怪的插件.</li>
-      </ul>
-      cons:<br>
-      <ul>
-        <li>你在教我做事? 因为受限于内嵌窗口工作流, 难以进行多轨道的插件对照; 因为受限于Group流派音频结构, 难以做出错综复杂的旁链, 不是不能做, 但是你很难debug. </li>
-        <li>丑陋的第三方插件窗口, 而且没有窗口管理. 我用ctrl+alt+p的方式开关轨道上的全部窗口, 这才能保护多窗口结构, 也不是不能用.</li>
-        <li>狭小的按钮和文字, 咱们一定都是fps瞄头高手.</li>
-        <li>依然手感奇怪的钢琴窗.</li>
-      </ul>
-      最后是我并不很熟悉的Reaper. Reaper 7才刚出来呢. 只有两位工程师维护的daw, 能屹立于音频市场, 非常了不起.<br>
-      pros:<br>
-      <ul>
-        <li>Action. 自己用ReaScript编写操作序列, 理论上reaper不会存在繁琐操作.</li>
-        <li>JSFX Programming. 比Max强大的自定义插件系统. 我欣赏这个自由系统, 它可能比JUCE更适合音频这种偏向艺术性的领域. Reaper的开发者实际上成千上万, 因为有才华的极客会写JSFX.</li>
-        <li>包管理系统! ReaPack. Reaper很有Unix风范, 真的很极客. </li>
-      </ul>
-      cons:<br>
-      <ul>
-        <li>极其极其丑陋的界面, 就算有可最大程度定制化的Theme系统, 还是没法掩盖这种丑陋. 我不用说明丑陋的理由, 世界上应该不会有人认为Reaper好看.</li>
-        <li>繁琐的Macro系统. 虽然一位名为mpl的开发者做出了Macro Control插件, 但它也只是堪堪能用. Macro链接和映射是需要细致调整的, 因此行为固定的Action无能为力; 我认为macro一定要依靠Reaper内部系统的支持才能做好, 但是事实上它没能做好. 
-            所有映射都得打开一个属性窗口才能调整, 你在一般界面根本没法注意到存在哪些映射.
-            如果给Live的macro打10分, 给FL patcher macro打3分的话, Reaper的macro只能打1分.</li>
-      </ul>
-    </div>
-  </div>
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>music</span> | <span>producer</span> | <span>daw</span> | <span>ableton live</span> | <span>fl studio</span> | <span>reaper</span></div>
+<hr/>
+<div id="markdown_content"><h2 id="fl-studio">FL Studio</h2>
+<p>我的起点是FL Studio 11. 现在它出到21了. 到现在已经有六年了吧.</p>
+<h3 id="pros">pros</h3>
+<ul>
+<li>FL的界面非常漂亮, 有连贯的动画效果,
+保留拟物基因的扁平元素非常容易识别; 所有图标大小适中, 方便键鼠操作.</li>
+<li>原生插件有独到之处. 比如Grossbeat,
+简直是state-of-the-art的时间调制效果器;
+Harmor依然是不好操作但最强大的加法合成器.
+基础的混音效果器也没有短板.</li>
+<li>彩色音频. 多段频率的颜色混合, 非常直观.
+对于做采样”拼贴艺术”的制作人来说这个功能太好用了.
+你在艺术思考时是不愿意看文件名的, 只想看到颜色.</li>
+<li>Pattern逻辑, 你不会用才会觉得不好用. 另一方面,
+FL新的线性工作流是很成功的, 不停试错也不会把整个工程弄得一团糟.</li>
+<li>漂亮的钢琴窗, 好用的钢琴窗. 还有python api,
+可以用程序生成谱子了.</li>
+</ul>
+<h3 id="cons">cons</h3>
+<ul>
+<li>作为核心组件的Patcher, 缺少插件窗口管理, 每次都得一遍遍打开插件窗口;
+想第三方插件的Params需要点好多下; Patcher的macro同样难用,
+想要调整映射值得新建formula controller或者x-y-z controller.
+这是FL的核心致命缺陷. 这个缺陷实在太大了. 这个缺陷会搞死FL的.</li>
+<li>混音台参数能被鼠标滚轮滚动, 一不小心就乱了.</li>
+</ul>
+<h2 id="ableton-live">Ableton Live</h2>
+<p>然后是人见人爱的Ableton Live. 我从10的末期开始尝试, 现在它出到了11.
+Ableton Live 12将于明年正式发售, 目前主打的宣发是钢琴窗优化,
+可以期待一波.</p>
+<h3 id="pros-1">pros</h3>
+<ul>
+<li>Max for Live. 低代码的插件试验场.
+不懂程序的艺术家也可以做独特的插件. 但是在这劣币占绝大部分的世界里,
+会用Max的是极少的良币, 在这之中有很多本身懂编程, 他们不一定愿意用Max.
+直接用JUCE库去写vst不是更好吗?</li>
+<li>内嵌窗口的原生插件. 这同样算是Max的独特优势. 窗口不会一团糟,
+轨道的效果器链配置情况一目了然.</li>
+<li>Macro管理. 超高速的macro链接方案, 音色设计的试验场.
+超高速的automation方案.</li>
+<li>Group混音流派. 你只能用Group混音流.</li>
+<li>强大的原生插件. 有好多古怪的小玩意.
+这还没算上Max的更多奇怪的插件.</li>
+</ul>
+<h3 id="cons-1">cons</h3>
+<ul>
+<li>你在教我做事? 因为受限于内嵌窗口工作流, 难以进行多轨道的插件对照;
+因为受限于Group流派音频结构, 难以做出错综复杂的旁链, 不是不能做,
+但是你很难debug.</li>
+<li>丑陋的第三方插件窗口, 而且没有窗口管理.
+我用ctrl+alt+p的方式开关轨道上的全部窗口, 这才能保护多窗口结构,
+也不是不能用.</li>
+<li>狭小的按钮和文字, 咱们一定都是fps瞄头高手.</li>
+<li>依然手感奇怪的钢琴窗.</li>
+</ul>
+<h2 id="reaper">Reaper</h2>
+<p>最后是我并不很熟悉的Reaper. Reaper 7才刚出来呢.
+只有两位工程师维护的daw, 能屹立于音频市场, 非常了不起.</p>
+<h3 id="pros-2">pros</h3>
+<ul>
+<li>Action. 自己用ReaScript编写操作序列,
+理论上reaper不会存在繁琐操作.</li>
+<li>JSFX Programming. 比Max强大的自定义插件系统. 我欣赏这个自由系统,
+它可能比JUCE更适合音频这种偏向艺术性的领域.
+Reaper的开发者实际上成千上万, 因为有才华的极客会写JSFX.</li>
+<li>包管理系统! ReaPack. Reaper很有Unix风范, 真的很极客.</li>
+</ul>
+<h3 id="cons-2">cons</h3>
+<ul>
+<li>极其极其丑陋的界面, 就算有可最大程度定制化的Theme系统,
+还是没法掩盖这种丑陋. 我不用说明丑陋的理由,
+世界上应该不会有人认为Reaper好看.</li>
+<li>繁琐的Macro系统. 虽然一位名为mpl的开发者做出了Macro Control插件,
+但它也只是堪堪能用. Macro链接和映射是需要细致调整的,
+因此行为固定的Action无能为力;
+我认为macro一定要依靠Reaper内部系统的支持才能做好, 但是事实上它没能做好.
+所有映射都得打开一个属性窗口才能调整,
+你在一般界面根本没法注意到存在哪些映射. 如果给Live的macro打10分, 给FL
+patcher macro打3分的话, Reaper的macro只能打1分.</li>
+</ul>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
 </body>
-
 </html>
