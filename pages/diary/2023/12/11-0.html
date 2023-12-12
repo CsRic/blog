@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Janko Layout Piano</h1>
+<!-- time here -->
+last update: 2023/12/11</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>music</span> | <span>janko</span> | <span>piano</span> | <span>midi controller</span></div>
+<hr/>
+<div id="markdown_content"><p>我觉得<a href="https://en.wikipedia.org/wiki/Jank%C3%B3_keyboard">Janko
+layout</a>才应该是正统的琴键配列, 它是以半音间隔均匀排列的.
+这比黑白键这套沿袭的排列要科学和美观.</p>
+<p>我几乎不会弹琴, 要学习12种调的指法太艰难了,
+但是Janko就只需要一套指法, 这样可以哐哐按和弦, 想想就爽.</p>
+<p>幸运的是, midi键盘很适合改造成Janko配列.
+我找到了TomsJensen老哥为Arturia Keystep创作的<a href="https://www.thingiverse.com/thing:3564049">3D修改部件</a>.
+我现在有一架Arturia Keystep 37, 和老哥用的结构尺寸几乎一致,
+我可以试试.</p>
+<p>我需要学习3D打印的基础知识.</p>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
