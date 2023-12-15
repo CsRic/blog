@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Stream template - FL Studio</h1>
+<!-- time here -->
+last update: 2023/12/15</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>fl studio</span> | <span>stream</span> | <span>loopback</span> | <span>music</span></div>
+<hr/>
+<div id="markdown_content"><p>我做了一个兼有基础乐器和音频流效果器的flp工程, 它需要FL Studio
+21打开.</p>
+<p>把计算机音频loopback进2号混音台之后, 这个模板就可以即时处理它了.
+任何程序发出的声音都能被处理!
+比如你可以在使用网易云音乐放歌时即兴地添加效果, 很快乐.</p>
+<figure>
+<img alt="screenshot" src="./stream_template_screenshot.png"/>
+<figcaption aria-hidden="true">screenshot</figcaption>
+</figure>
+<p>没有购买FL Studio的人也可以使用. FL
+Studio的免费试用版可以打开我这个工程, 不过进行保存后的工程没法再次打开.
+具体解释如下: - 试用版没有时间限制或打扰你的东西, 唯一的限制是,
+你保存的工程被标记为”试用版存储”, 因此试用版没法再次打开它,
+除非你购买了FL Studio, 那么可以再次打开工程. - 我购买了FL Studio,
+因此我的工程没有被标记为”试用版存储”, 试用版也可以打开. -
+我分享的工程里只有native插件, FL Studio绝对可以全部加载.
+试用版的所有插件都是可以用的.</p>
+<p><a download="" href="instrument_collection_2_native.flp">download
+instrument_collection_2_native.flp</a></p>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
