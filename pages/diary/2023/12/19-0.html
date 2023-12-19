@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Key Identification - Resuscitated Hope - コミネリサ - GOSICK</h1>
+<!-- time here -->
+last update: 2023/12/19</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>key indentification</span> | <span>music</span> | <span>gosick</span></div>
+<hr/>
+<div id="markdown_content"><p>Resuscitated Hope</p>
+<ul>
+<li>作词: 渡部紫緒</li>
+<li>作曲: 坂部剛</li>
+<li>编曲: 坂部剛</li>
+<li>演唱: コミネリサ</li>
+</ul>
+<p>GOSICK是日本ACGN的瑰宝之一, 主旨非常高尚.</p>
+<p>这首曲子是动画的一首ed. 今日聆听时思索,
+发现它采用的变调手法经典且多样, 因此识别一下.</p>
+<table>
+<colgroup>
+<col style="width: 34%"/>
+<col style="width: 27%"/>
+<col style="width: 37%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Key</th>
+<th>Other notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00</td>
+<td>Bm</td>
+<td>Intro. 唱的是Chorus, 唯一一次取Bm的Chorus.</td>
+</tr>
+<tr class="even">
+<td>0:17</td>
+<td>Bm</td>
+<td>Verse 1.</td>
+</tr>
+<tr class="odd">
+<td>0:39</td>
+<td>GM</td>
+<td>Pre-Chorus 1. 第一小节在Bm来看是do ti la do so; 在Em来看是fa mi re
+fa do, 平滑转调. 第二小节确认了GM调性. 向上5sem, 充满希望的转调.</td>
+</tr>
+<tr class="even">
+<td>0:53</td>
+<td>C#m</td>
+<td>Chorus 1. 突转! 向下3sem, 变成小调, 严肃厚重, 故事显现感.</td>
+</tr>
+<tr class="odd">
+<td>1:23</td>
+<td>C#m</td>
+<td>Bridge 1. 管弦气氛下降.</td>
+</tr>
+<tr class="even">
+<td>1:30</td>
+<td>Bm</td>
+<td>Verse 2. 向下2sem, 平稳降落到Verse 1的key.</td>
+</tr>
+<tr class="odd">
+<td>2:00</td>
+<td>GM</td>
+<td>Pre-Chorus 2. 向上5sem, 同Pre-Chorus 1.</td>
+</tr>
+<tr class="even">
+<td>2:14</td>
+<td>C#m</td>
+<td>Chorus 2. 向下3sem, 同Chorus 1.</td>
+</tr>
+<tr class="odd">
+<td>2:45</td>
+<td>C#m</td>
+<td>Bridge 2. 管弦气氛抬升, 激昂的小提琴组.</td>
+</tr>
+<tr class="even">
+<td>2:59</td>
+<td>G#m</td>
+<td>Solo - Guitar. 向下5sem. 和谐的转调,
+这个变调是推出了电吉他的一个信号.</td>
+</tr>
+<tr class="odd">
+<td>3:29</td>
+<td>C#M</td>
+<td>Verse 3. 向上2sem转到大调, 新的旋律. 最甜的一段. 前一段结尾视作la so
+fi do. fi半音突出了这段的甜.</td>
+</tr>
+<tr class="even">
+<td>3:43</td>
+<td>EM</td>
+<td>Pre-Chorus 3. 向上3sem转到另一个大调. 大调间的上升非常辉煌.</td>
+</tr>
+<tr class="odd">
+<td>4:02</td>
+<td>C#m</td>
+<td>Chorus 3. 向下3sem转到同名小调. 重复主题至outro.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
