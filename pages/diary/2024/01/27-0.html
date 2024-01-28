@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ET Diary</title>
+<link href="../../../../css/styles00.css" rel="stylesheet"/>
+<script src="../../../../js/styles00.js"></script>
+<link href="../../../../assets/images/fevicon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+<!-- header -->
+<div class="title-container">
+<div class="title-container-element" id="home" style="width: 10%;">
+<h3>Home</h3>
+</div>
+<div class="title-container-element" id="prev" style="width: 10%;">
+<h3>Prev</h3>
+</div>
+<div class="title-container-element" id="head">
+<h1 id="title">Key Identification - sprinter - Kalafina - Seventh Heaven</h1>
+<!-- time here -->
+last update: 2024/01/27</div>
+<div class="title-container-element" id="next" style="width: 10%;">
+<h3>Next</h3>
+</div>
+</div>
+<!-- head link and home link-->
+<script>
+    var head = document.getElementById('head');
+    head.addEventListener('click', function () {
+      window.top.location.href = window.location.href;
+    });
+    var home = document.getElementById('home');
+    home.addEventListener('click', function () {
+      window.top.location.href = "../../../../index.html";
+    });
+  </script>
+<!-- prev and next link -->
+<script>
+    function navigateTo(page) {
+      window.location.href = "../../" + page;
+    }
+    function getCurrentPage() {
+      var path = window.location.pathname;
+      var diaryIndex = path.indexOf('/diary/');
+      if (diaryIndex !== -1) {
+          // 提取 '/diary/' 之后的部分，包括 '/diary/' 的长度
+          return path.substring(diaryIndex + '/diary/'.length);
+      } else {
+          // 如果URL中没有找到 '/diary/'，可以返回默认值或处理错误
+          return ''; // 或其他适当的处理
+      }
+  }
+    function setupNavigationButtons(pages) {
+      var currentPage = getCurrentPage();
+      var currentIndex = pages.indexOf(currentPage);
+      var prevBtn = document.getElementById('prev');
+      var nextBtn = document.getElementById('next');
+
+      if (currentIndex < pages.length - 1) {
+        prevBtn.addEventListener('click', function() { navigateTo(pages[currentIndex + 1]); });
+      } else {
+          prevBtn.classList.add('disabled');
+      }
+
+      if (currentIndex > 0) {
+          nextBtn.addEventListener('click', function() { navigateTo(pages[currentIndex - 1]); });
+      } else {
+          nextBtn.classList.add('disabled');
+      }
+    }
+    function loadPagesAndSetupButtons() {
+      fetch("../../time_index.json")
+          .then(response => response.json())
+          .then(pages => setupNavigationButtons(pages))
+          .catch(error => console.error('Error loading pages:', error));
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      loadPagesAndSetupButtons();
+    });
+  </script>
+<div class="diary-div">
+<div style="margin-top: 2px; margin-left: 4px;">
+<div class="right-column">
+        tags:
+        <div class="tags">
+<!-- tags here -->
+<span>music</span> | <span>key indentification</span> | <span>the Garden of sinners</span></div>
+<hr/>
+<div id="markdown_content"><p>sprinter</p>
+<ul>
+<li>作词: 梶浦由记</li>
+<li>作曲: 梶浦由记</li>
+<li>编曲: 梶浦由记</li>
+<li>演唱: Kalafina</li>
+</ul>
+<p><a href="https://ja.wikipedia.org/wiki/%E7%A9%BA%E3%81%AE%E5%A2%83%E7%95%8C">『空の境界』</a>动画第五章,
+矛盾螺旋, 主题歌. 满分的动画.</p>
+<p>这首歌有个很有意思的段落, 连续”等间隔”转调,
+我没在其他地方看到过这种手法. 梶浦由记属实天才.</p>
+<p>除了接下来要分析的段落, 其他部分是大调还是小调我不好判断,
+主要是在落地前全是不太平稳的走向, 而它没有能够明确判断的落地. 唱符do
+sol偏多, 我认为是大调.</p>
+<p>那全曲主要key是D#Maj.</p>
+<table>
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 20%"/>
+<col style="width: 28%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Key</th>
+<th>Chords</th>
+<th>Other notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00</td>
+<td>D#M</td>
+<td>IV - V - VIm - VIm,V</td>
+<td>一般段落都是王道456和弦进行</td>
+</tr>
+<tr class="even">
+<td>1:37</td>
+<td>D#m</td>
+<td>IV - IV - III - VIm,I</td>
+<td>连续转调开始了. 向上3semi, 先转个同名小调哄抬气氛. III带来辉煌.</td>
+</tr>
+<tr class="odd">
+<td>1:50</td>
+<td>AM</td>
+<td>IV - V - I,V - VIm</td>
+<td>向上3semi. 这次转调过程很有紧张感. 但是整段旋律很甜.</td>
+</tr>
+<tr class="even">
+<td>2:01</td>
+<td>Am</td>
+<td>IV,IIm - V - III - VIm,V</td>
+<td>向上3semi. 又是同名小调, 哄抬气氛的转调. III带来辉煌.</td>
+</tr>
+<tr class="odd">
+<td>2:14</td>
+<td>D#M</td>
+<td>IV - V,IV - III - III</td>
+<td>还是向上3semi, 这样就转回D#M了! 略微紧张的转调. III给了个决定性,
+但有悬念的收束.</td>
+</tr>
+<tr class="even">
+<td>2:25</td>
+<td>D#M</td>
+<td>IV - V - VIm - VIm,V</td>
+<td>接下来没有变化了.</td>
+</tr>
+</tbody>
+</table>
+<p>分辨chords就是图一乐, 我太菜了, 感觉很有问题.</p>
+<p>梶浦由记很擅长突破流行音乐限制, 情感丰富地引出一大段,
+乐思如脱缰野马自由前进…. 这首歌50秒内连转4次调就是一个例子.
+这4次转调的情感传达没有重复, 但是却同样是3semi向上, 最终又转回原点.</p>
+<p>这, 就是矛盾螺旋吧.</p>
+</div>
+</div>
+<div class="left-column" id="sidebar_list">
+<!-- sidebar list here -->
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var headings = document.querySelectorAll('#markdown_content h2, #markdown_content h3, #markdown_content h4, #markdown_content h5');
+      var sidebarList = document.getElementById('sidebar_list');
+      headings.forEach(function(heading) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.textContent = heading.textContent;
+          a.href = '#' + heading.id;
+          a.style.textDecoration = 'none';
+          // indentation
+          var level = parseInt(heading.tagName.substring(1));
+          li.style.marginLeft = (level - 1) + 'rem'; 
+          li.appendChild(a);
+          sidebarList.appendChild(li);
+      });
+  });
+</script>
+</body>
+</html>
