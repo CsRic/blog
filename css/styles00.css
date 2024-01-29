@@ -6,7 +6,7 @@
   --heavy-gray-box-color:  rgb(65, 65, 65);
   --reverse-text-color: rgb(241, 241, 241);
   --box-hover-color:#d45d5d;
-  --border-radius: 10px;
+  --border-radius: 5px;
 }
 
 html {
@@ -94,6 +94,7 @@ body {
   margin-right: 2px;
   overflow-y: auto; /* 如果需要滚动条 */
   padding-top: 2px;
+  margin-bottom: 2px;
   right: 0;
 }
 

@@ -1,0 +1,8 @@
+
+Create the animated logo for Cracking Sciences, with Manim.
+
+I learnt Manim for 3 hours. It's a good tool for making geometry and mathematical animations, which is also the limitaion.
+
+Overall, for designing logo, even complex curved patterns (not in Cracking Sciences' logo), Manim is far more better than Adobe Illustrator. Who wants to draw Bezier curves by hand if you can write python to program them?
+
+[github link](https://github.com/Cracking-Sciences/Logo-Animation)
