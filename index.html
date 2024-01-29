@@ -59,9 +59,16 @@
   <!-- right side-->
   <div class="right-column" id="preview">
     <!-- sub page -->
-    <iframe id="iframePreview" src="./pages/diary_entry.html", width="100%", height="100%", style="border:none; overflow-y: scroll;"></iframe>
+    <iframe id="iframePreview" src="./pages/diary_entry.html", width="100%", height="80%", style="border:none; overflow-y: scroll;"></iframe>
   </div>
   <script>
+    function adjustIframeHeight() {
+      var titleContainerHeight = document.querySelector('.title-container').offsetHeight;
+      var newIframeHeight = window.innerHeight - titleContainerHeight - 10;
+      document.getElementById('iframePreview').style.height = newIframeHeight + 'px';
+    }
+
+
     function showContent(contentId) {
       var src = '';
       if(contentId === 'diary') {
@@ -76,7 +83,11 @@
         src = "./pages/home.html"
       }
       document.getElementById('iframePreview').src = src;
+      adjustIframeHeight();
     }
+
+    window.addEventListener('resize', adjustIframeHeight);
+    window.addEventListener('load', adjustIframeHeight);
   </script>
 </body>
 
