@@ -64,9 +64,20 @@ function loadPagesAndSetupButtons() {
         .catch(error => console.error('Error loading pages:', error));
 }
 
+function updateRightColumnMarginLeft() {
+    var rightColumns = document.querySelectorAll('.right-column');
+    rightColumns.forEach(function(column) {
+        var newMarginLeft = 'calc(20% + 12px)';
+        column.style.marginLeft = newMarginLeft;
+    });
+}
+
+
 // Initialization on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
     setupHeaderAndHomeLinks();
     loadPagesAndSetupButtons();
     updateSidebar();
+    updateRightColumnMarginLeft();
+    window.addEventListener('resize', updateRightColumnMarginLeft);
 });
