@@ -7,7 +7,6 @@
   --reverse-text-color: rgb(241, 241, 241);
   --box-hover-color:#d45d5d;
   --border-radius: 5px;
-
   --max-page-width: 1400px;
 }
 
@@ -93,6 +92,7 @@ body {
   /*direction: rtl; /* 设置文本方向为从右到左 */
   border-left: 4px solid var(--background-color);
   border-right: 4px Dashed var(--light-gray-box-color);
+  border-radius: 0;
 }
 
 /* 右边列 */
